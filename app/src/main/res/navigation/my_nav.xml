@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/loginAdmin">
+
+    <fragment
+        android:id="@+id/loginAdmin"
+        android:name="com.example.androidadminver1.loginAdmin"
+        android:label="login_admin_layout"
+        tools:layout="@layout/login_admin_layout" >
+        <action
+            android:id="@+id/action_loginAdmin_to_registerAdminn"
+            app:destination="@id/registerAdminn" />
+        <action
+            android:id="@+id/action_loginAdmin_to_forgetAdmin"
+            app:destination="@id/forgetAdmin" />
+        <action
+            android:id="@+id/action_loginAdmin_to_homeAdmin"
+            app:destination="@id/homeAdmin" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerAdminn"
+        android:name="com.example.androidadminver1.registerAdminn"
+        android:label="register_adminn_layout"
+        tools:layout="@layout/register_adminn_layout" >
+        <action
+            android:id="@+id/action_registerAdminn_to_loginAdmin"
+            app:destination="@id/loginAdmin" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetAdmin"
+        android:name="com.example.androidadminver1.forgetAdmin"
+        android:label="forget_admin_admin"
+        tools:layout="@layout/forget_admin_admin" >
+        <action
+            android:id="@+id/action_forgetAdmin_to_loginAdmin"
+            app:destination="@id/loginAdmin" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeAdmin"
+        android:name="com.example.androidadminver1.homeAdmin"
+        android:label="home_admin_layout"
+        tools:layout="@layout/home_admin_layout" >
+        <action
+            android:id="@+id/action_homeAdmin_to_chartAdmin"
+            app:destination="@id/chartAdmin" />
+        <action
+            android:id="@+id/action_homeAdmin_to_profileAdmin"
+            app:destination="@id/profileAdmin" />
+    </fragment>
+    <fragment
+        android:id="@+id/chartAdmin"
+        android:name="com.example.androidadminver1.chartAdmin"
+        android:label="chart_admin_layout"
+        tools:layout="@layout/chart_admin_layout" >
+        <action
+            android:id="@+id/action_chartAdmin_to_homeAdmin"
+            app:destination="@id/homeAdmin" />
+        <action
+            android:id="@+id/action_chartAdmin_to_profileAdmin"
+            app:destination="@id/profileAdmin" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileAdmin"
+        android:name="com.example.androidadminver1.profileAdmin"
+        android:label="profile_admin_layout"
+        tools:layout="@layout/profile_admin_layout" >
+        <action
+            android:id="@+id/action_profileAdmin_to_homeAdmin"
+            app:destination="@id/homeAdmin" />
+        <action
+            android:id="@+id/action_profileAdmin_to_chartAdmin"
+            app:destination="@id/chartAdmin" />
+    </fragment>
+    <fragment
+        android:id="@+id/inforMotoAdmin"
+        android:name="com.example.androidadminver1.inforMotoAdmin"
+        android:label="infor_moto_admin_layout"
+        tools:layout="@layout/infor_moto_admin_layout" />
+</navigation>
