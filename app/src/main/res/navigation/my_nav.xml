@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/loginAdmin">
+    app:startDestination="@id/notifyAdmin">
 
     <fragment
         android:id="@+id/loginAdmin"
@@ -79,4 +79,9 @@
         android:name="com.example.androidadminver1.inforMotoAdmin"
         android:label="infor_moto_admin_layout"
         tools:layout="@layout/infor_moto_admin_layout" />
+    <fragment
+        android:id="@+id/notifyAdmin"
+        android:name="com.example.androidadminver1.notifyAdmin"
+        android:label="notify_admin_layout"
+        tools:layout="@layout/notify_admin_layout" />
 </navigation>
