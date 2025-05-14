@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_margin="15dp"
+    android:background="@drawable/border_item"
     android:padding="8dp">
 
     <ImageView
@@ -12,20 +14,30 @@
         android:scaleType="centerCrop" />
 
     <TextView
+        android:text="hello"
+        android:layout_gravity="center"
         android:id="@+id/post_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/view_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Xem" />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/view_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xem" />
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Xóa" />
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xóa" />
+
+    </LinearLayout>
 </LinearLayout>

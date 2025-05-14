@@ -52,9 +52,9 @@
             android:weightSum="10">
             <!--            img san pham -->
             <ViewFlipper
+                android:id="@+id/flipper_infoMoto"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/img_moto_1"
@@ -102,8 +102,7 @@
             <!--            gia tien va yeu thich san pham-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -116,7 +115,13 @@
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
-
+                <ImageView
+                    android:id="@+id/yeuthich_moto"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_heart_chitiet" />
 
             </LinearLayout>
 
@@ -124,9 +129,8 @@
             <TextView
                 android:id="@+id/title_moto"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="MOTO Z1000 đã qua sử dụng còn mới 100%"
                 android:textColor="@color/black"
                 android:textSize="25dp"
@@ -145,6 +149,7 @@
                     android:text="chi tiết:"
                     android:textColor="@color/black"
                     android:textSize="20dp"
+                    android:layout_marginTop="10dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -159,7 +164,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginVertical="20dp"
+                    android:layout_marginVertical="10dp"
                     android:padding="10dp">
                     <TextView
                         android:layout_width="wrap_content"
@@ -181,7 +186,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:padding="10dp">
                     <TextView
                         android:layout_width="wrap_content"
@@ -203,7 +208,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sản xuất tại:  "
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="18dp" />
+                    <TextView
+                        android:id="@+id/txt_nsx"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="YAMAHA"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
                     android:padding="10dp">
                     <TextView
                         android:layout_width="wrap_content"
@@ -238,6 +265,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
+            android:id="@+id/tv_tuchoi"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -250,6 +278,7 @@
             android:scaleType="centerInside" />
 
         <TextView
+            android:id="@+id/tv_accep"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -263,18 +292,6 @@
 
     </LinearLayout>
 
-    <!--    help app-->
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:padding="30dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/hinh_tron_help"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 

@@ -34,24 +34,16 @@
         android:layout_marginBottom="40dp">
 
         <EditText
-            android:id="@+id/etForgotPassUsers"
+            android:id="@+id/etForgotPassAdmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_tb"
             android:gravity="left|center"
             android:hint="@string/hint_login_admin"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:padding="10dp"
             android:paddingEnd="48dp" />
 
-        <ImageView
-            android:id="@+id/ivToggleOldPassword"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignEnd="@id/etForgotPassUsers"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_eye" />
     </RelativeLayout>
 
 
@@ -59,7 +51,7 @@
 
 
     <Button
-        android:id="@+id/btnAcceptUsers"
+        android:id="@+id/btnAcceptAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"

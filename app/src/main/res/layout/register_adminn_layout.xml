@@ -39,12 +39,11 @@
             android:background="@drawable/custom_tb"
             android:gravity="left|center"
             android:hint="@string/hint_register_name_admin"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:padding="10dp"
             android:paddingEnd="48dp" />
 
     </RelativeLayout>
-    <!-- Mật khẩu hiện tại -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +56,7 @@
             android:background="@drawable/custom_tb"
             android:gravity="left|center"
             android:hint="@string/hint_login_admin"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:padding="10dp"
             android:paddingEnd="48dp" />
 
@@ -121,7 +120,7 @@
 
 
     <Button
-        android:id="@+id/btnAcceptUsers"
+        android:id="@+id/btnAcceptAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -135,7 +134,7 @@
 
 
     <TextView
-        android:id="@+id/tvHaveNoAccountAdmin"
+        android:id="@+id/tvHaveAccountAdmin"
         android:layout_width="141dp"
         android:layout_height="20dp"
         android:layout_marginLeft="250dp"

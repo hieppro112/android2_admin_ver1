@@ -3,11 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:background="@drawable/border_item"
+    android:layout_margin="15dp"
+    android:gravity="center"
+    android:padding="15dp">
 
     <ImageView
         android:id="@+id/post_image"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="150dp"
         android:scaleType="centerCrop" />
 
@@ -15,23 +18,33 @@
         android:id="@+id/post_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="hello"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/view_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Xem" />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/view_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xem" />
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Xóa" />
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Từ Chối" />
 
-    <Button
-        android:id="@+id/approve_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phê duyệt" /> <!-- Nút phê duyệt cho bài viết chưa duyệt -->
-</LinearLayout>
+        <Button
+
+            android:id="@+id/approve_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phê duyệt" /> <!-- Nút phê duyệt cho bài viết chưa duyệt -->
+
+    </LinearLayout>
+
+    </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/notifyAdmin">
+    app:startDestination="@id/homeAdmin">
 
     <fragment
         android:id="@+id/loginAdmin"
@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_homeAdmin_to_profileAdmin"
             app:destination="@id/profileAdmin" />
+        <action
+            android:id="@+id/action_homeAdmin_to_inforMotoAdmin"
+            app:destination="@id/inforMotoAdmin" />
     </fragment>
     <fragment
         android:id="@+id/chartAdmin"
@@ -78,7 +81,50 @@
         android:id="@+id/inforMotoAdmin"
         android:name="com.example.androidadminver1.inforMotoAdmin"
         android:label="infor_moto_admin_layout"
-        tools:layout="@layout/infor_moto_admin_layout" />
+        tools:layout="@layout/infor_moto_admin_layout" >
+        <action
+            android:id="@+id/action_inforMotoAdmin_to_homeAdmin"
+            app:destination="@id/homeAdmin" />
+        <argument
+            android:name="id_post"
+            app:argType="string" />
+        <argument
+            android:name="Url_img"
+            app:argType="string" />
+        <argument
+            android:name="post_soluong"
+            app:argType="integer" />
+        <argument
+            android:name="post_giaban"
+            app:argType="string" />
+        <argument
+            android:name="ghim"
+            app:argType="boolean" />
+        <argument android:name="post_tieude"
+            app:argType="string" />
+        <argument
+            android:name="post_mota"
+            app:argType="string" />
+        <argument
+            android:name="post_tinhtrang"
+            app:argType="integer" />
+        <argument android:name="post_loaixe"
+            app:argType="string" />
+        <argument android:name="post_nsx"
+            app:argType="integer" />
+        <argument
+            android:name="sdt"
+            app:argType="string" />
+        <argument
+            android:name="nhasx"
+            app:argType="string" />
+        <argument
+            android:name="Url_img2"
+            app:argType="string" />
+        <argument
+            android:name="Url_img3"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/notifyAdmin"
         android:name="com.example.androidadminver1.notifyAdmin"

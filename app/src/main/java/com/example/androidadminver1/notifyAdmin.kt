@@ -35,7 +35,6 @@ class notifyAdmin : Fragment() {
             addNotify()
 
             findNavController().navigate(R.id.homeAdmin)
-
         }
     }
 
@@ -47,6 +46,7 @@ class notifyAdmin : Fragment() {
         if (content.isEmpty()) binding.edtTitleNotify.error = "Vui long nhap noi dung"
 
         val id_noti = firebaseRef.push().key!!
+        chuyenMH()
 
         firebaseRef.child(id_noti).setValue(notify(id_noti, title, content))
             .addOnCompleteListener {
@@ -62,8 +62,19 @@ class notifyAdmin : Fragment() {
             .addOnFailureListener {
                 Toast.makeText(requireContext(), "Add Notifycation FAIL !!", Toast.LENGTH_SHORT)
                     .show()
-
             }
+    }
+
+    fun chuyenMH(){
+        binding.btnHome.setOnClickListener {
+            findNavController().navigate(R.id.homeAdmin)
+        }
+        binding.btnAdd.setOnClickListener {
+            findNavController().navigate(R.id.chartAdmin)
+        }
+        binding.btnProfile.setOnClickListener {
+            findNavController().navigate(R.id.profileAdmin)
+        }
     }
 
 }

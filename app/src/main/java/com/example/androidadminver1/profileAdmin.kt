@@ -35,6 +35,9 @@ class profileAdmin : Fragment() {
         binding.btnProfile.setOnClickListener {
             findNavController().navigate(R.id.profileAdmin)
         }
+        binding.tvThongBao.setOnClickListener {
+            findNavController().navigate(R.id.notifyAdmin)
+        }
     }
 
 
