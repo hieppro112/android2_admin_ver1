@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="app_name">Xe Xin</string>
+    <string name="app_name">Xe Xin Admin</string>
     <string name="title_change_password">ĐỔI MẬT KHẨU</string>
     <string name="hint_old_password">Mật khẩu hiện tại</string>
     <string name="hint_new_password">Mật khẩu mới</string>

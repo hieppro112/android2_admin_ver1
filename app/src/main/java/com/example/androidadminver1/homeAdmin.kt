@@ -56,10 +56,6 @@ class homeAdmin : Fragment() {
 
         fetchData_daduyet()
         fetchData()
-
-
-
-
     }
 
     private fun fetchData() {
@@ -112,25 +108,7 @@ class homeAdmin : Fragment() {
         })
     }
 
-    private fun setupRecyclerViews() {
-//        val approvedPosts = listOf(
-//            post("MOTO Z1000 đã qua sử dụng còn mới 90%", R.drawable.img_moto), // Thay bằng tài nguyên thực tế
-//            post("Siêu phẩm BMW M 1000 RR 2022", R.drawable.img_moto3)
-//        )
-//
-//        val pendingPosts = listOf(
-//            post("Xe máy Honda SH 2023", R.drawable.img_moto3),
-//            post("Yamaha R15 V4", R.drawable.img_moto)
-//        )
 
-//        // Thiết lập RecyclerView cho bài viết đã duyệt
-//        binding.approvedPostsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-//        binding.approvedPostsRecyclerView.adapter = ApprovedPostsAdapter(approvedPosts)
-//
-//        // Thiết lập RecyclerView cho bài viết chưa duyệt
-//        binding.pendingPostsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-//        binding.pendingPostsRecyclerView.adapter = PendingPostsAdapter(pendingPosts)
-    }
 
     fun chuyenMH(){
         binding.btnHome.setOnClickListener {

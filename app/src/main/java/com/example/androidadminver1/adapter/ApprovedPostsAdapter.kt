@@ -90,7 +90,8 @@ class ApprovedPostsAdapter(private val posts: List<post>) : RecyclerView.Adapter
                     .setPositiveButton("yes"){_,_->
 //                        val fireBaseRef = FirebaseDatabase.getInstance().getReference("Contacs")
                         firebaseRef.child(items.id.toString()).removeValue()
-                            .addOnCompleteListener { Log.d("delete", "delete succses: ") }
+                            .addOnCompleteListener {Toast.makeText(holder.itemView.context, "Da xoa bai thanh cong", Toast.LENGTH_SHORT).show()
+                                 }
                             .addOnFailureListener { Log.d("delete", "delete Fail: ") }
                     }
                     .setNegativeButton("No"){_,_->

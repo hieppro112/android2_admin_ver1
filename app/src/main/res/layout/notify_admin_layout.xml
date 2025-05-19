@@ -82,6 +82,69 @@
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+<!--            <CheckBox-->
+<!--                android:id="@+id/check_member_notify"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Gửi đến người dùng cụ thể"/>-->
+            <RadioGroup
+                android:id="@+id/radio_Groưp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/rd_send_all"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Mọi người"
+                    android:checked="false"/>
+                <RadioButton
+                    android:id="@+id/rd_send_only"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Một người"
+                    android:checked="false"/>
+
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/send_member"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gửi đến: "
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+
+            <EditText
+                android:id="@+id/edt_only_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_item"
+                android:layout_margin="10dp"
+                android:hint="Mail người nhận"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/btn_add_notify"
             android:layout_width="wrap_content"
@@ -93,8 +156,6 @@
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_notify_btn"/>
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -133,5 +194,7 @@
             android:src="@drawable/ic_profile" />
 
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

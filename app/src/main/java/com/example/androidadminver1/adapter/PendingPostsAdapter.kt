@@ -92,50 +92,13 @@ class PendingPostsAdapter(private val posts: List<post>) : RecyclerView.Adapter<
 
             }
             approveButton.setOnClickListener {
-                firebaseRef.addValueEventListener(object :ValueEventListener{
-                    override fun onDataChange(snap: DataSnapshot) {
-                        if (snap.exists()){
-                            for (item in snap.children){
-                                item?.let {
-                                    if (items.id==it.key){
-                                        Log.d("tesst duyet", "${firebaseRef.child(it.key!!)} ")
-                                        Toast.makeText(holder.itemView.context,"bai viet da duoc duyet se som hien len!!",Toast.LENGTH_LONG).show()
-                                        firebaseRef.child(it.key!!).child("duyet").setValue(2)
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    override fun onCancelled(p0: DatabaseError) {
-                        Log.d("log test", "loi : $p0: ")
-                    }
-
-                })
+                firebaseRef.child(items.id).child("duyet").setValue(2)
+                Toast.makeText(holder.itemView.context, "Da duyet bai", Toast.LENGTH_SHORT).show()
             }
             deleteButton.setOnClickListener {
-                firebaseRef.addValueEventListener(object :ValueEventListener{
-                    override fun onDataChange(snap: DataSnapshot) {
-                       if (snap.exists()){
-                           for (item in snap.children){
-                               item?.let {
-                                   if (items.id==it.key){
-                                       firebaseRef.child(item.key!!).child("duyet")
-                                       Toast.makeText(holder.itemView.context,"bai viet da bi tu choi!!",Toast.LENGTH_LONG).show()
-                                       firebaseRef.child(it.key!!).child("duyet").setValue(3)
+                firebaseRef.child(items.id).child("duyet").setValue(3)
+                Toast.makeText(holder.itemView.context, "Da tu choi", Toast.LENGTH_SHORT).show()
 
-                                   }
-                               }
-                           }
-                       }
-                    }
-
-                    override fun onCancelled(p0: DatabaseError) {
-                        Log.d("log loi", "loi: $p0: ")
-                    }
-
-                })
             }
         }
     }

@@ -115,13 +115,7 @@
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/yeuthich_moto"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_heart_chitiet" />
+
 
             </LinearLayout>
 

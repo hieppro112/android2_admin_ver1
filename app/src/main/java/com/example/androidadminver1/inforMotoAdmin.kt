@@ -103,55 +103,13 @@ class inforMotoAdmin : Fragment() {
 
     fun pheduyet(){
         binding.tvTuchoi.setOnClickListener {
-            firebaseRef.addValueEventListener(object :ValueEventListener{
-                override fun onDataChange(snap: DataSnapshot) {
-                    if (snap.exists()){
-                        for (item in snap.children){
-                            item?.let {
-                                if (agrs.idPost==it.key){
-                                    firebaseRef.child(item.key!!).child("duyet")
-                                    Toast.makeText(requireContext(),"bai viet da bi tu choi!!",Toast.LENGTH_LONG).show()
-                                    firebaseRef.child(it.key!!).child("duyet").setValue(3)
-                                    findNavController().navigate(R.id.homeAdmin)
+            firebaseRef.child(agrs.idPost).child("duyet").setValue(3)
+            Toast.makeText(requireContext(), "Da tu choi bai viet", Toast.LENGTH_SHORT).show()
 
-                                }
-                            }
-                        }
-                    }
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                    Log.d("log loi", "loi: $p0: ")
-                }
-
-            })
         }
-
-
         binding.tvAccep.setOnClickListener{
-            firebaseRef.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snap: DataSnapshot) {
-                    if (snap.exists()){
-                        for (item in snap.children){
-                            item?.let {
-                                if (agrs.idPost==it.key){
-                                    Log.d("tesst duyet", "${firebaseRef.child(it.key!!)} ")
-                                    Toast.makeText(requireContext(),"bai viet da duoc duyet se som hien len!!",
-                                        Toast.LENGTH_LONG).show()
-                                    firebaseRef.child(it.key!!).child("duyet").setValue(2)
-                                    findNavController().navigate(R.id.homeAdmin)
-
-                                }
-                            }
-                        }
-                    }
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                    Log.d("log test", "loi : $p0: ")
-                }
-
-            })
+            firebaseRef.child(agrs.idPost).child("duyet").setValue(2)
+            Toast.makeText(requireContext(), "Da duyet bai", Toast.LENGTH_SHORT).show()
 
         }
     }

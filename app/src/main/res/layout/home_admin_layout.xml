@@ -20,7 +20,7 @@
             android:background="#1E8407"
             android:text="ADMIN"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <TextView

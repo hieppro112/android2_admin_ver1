@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/homeAdmin">
+    app:startDestination="@id/loginAdmin">
 
     <fragment
         android:id="@+id/loginAdmin"
@@ -76,6 +76,12 @@
         <action
             android:id="@+id/action_profileAdmin_to_chartAdmin"
             app:destination="@id/chartAdmin" />
+        <action
+            android:id="@+id/action_profileAdmin_to_doiMatKhau"
+            app:destination="@id/doiMatKhau" />
+        <action
+            android:id="@+id/action_profileAdmin_to_notifyAdmin"
+            app:destination="@id/notifyAdmin" />
     </fragment>
     <fragment
         android:id="@+id/inforMotoAdmin"
@@ -130,4 +136,13 @@
         android:name="com.example.androidadminver1.notifyAdmin"
         android:label="notify_admin_layout"
         tools:layout="@layout/notify_admin_layout" />
+    <fragment
+        android:id="@+id/doiMatKhau"
+        android:name="com.example.androidadminver1.doiMatKhau"
+        android:label="doi_mat_khau_layout"
+        tools:layout="@layout/doi_mat_khau_layout" >
+        <action
+            android:id="@+id/action_doiMatKhau_to_profileAdmin"
+            app:destination="@id/profileAdmin" />
+    </fragment>
 </navigation>
