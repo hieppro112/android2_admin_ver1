@@ -81,8 +81,7 @@ class loginAdmin : Fragment() {
                 if (task.isSuccessful) {
                     val admin = auth.currentUser
                     if (admin != null) {
-                        if (admin.isEmailVerified) {
-                            // Trước tiên kiểm tra role, rồi mới cập nhật
+                        if (admin.isEmailVerified) {                            
                             firebaseRefAdmin.child(admin.uid).get()
                                 .addOnSuccessListener { dataSnapshot ->
                                     if (dataSnapshot.exists()) {
