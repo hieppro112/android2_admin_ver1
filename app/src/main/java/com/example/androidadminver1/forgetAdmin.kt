@@ -26,7 +26,7 @@ class forgetAdmin : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = ForgetAdminAdminBinding.inflate(inflater, container, false)
-        firebaseRefAdmin = FirebaseDatabase.getInstance().getReference("Users")
+        firebaseRefAdmin = FirebaseDatabase.getInstance().getReference("Admin")
         auth = FirebaseAuth.getInstance()
         binding.btnAcceptAdmin.setOnClickListener {
             val email = binding.etForgotPassAdmin.text.toString().trim()
