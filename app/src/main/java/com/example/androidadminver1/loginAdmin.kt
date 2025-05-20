@@ -99,7 +99,7 @@ class loginAdmin : Fragment() {
                                                     truyenID(email)
                                                     findNavController().navigate(R.id.homeAdmin)
                                                 } else {
-                                                    Toast.makeText(context, "Đây là tài khoản user", Toast.LENGTH_SHORT).show()
+                                                    Toast.makeText(context, "Đây là tài khoản admin", Toast.LENGTH_SHORT).show()
                                                 }
                                             } else {
                                                 Toast.makeText(context, "Không tìm thấy dữ liệu người dùng", Toast.LENGTH_SHORT).show()
