@@ -94,10 +94,13 @@ class loginAdmin : Fragment() {
                                         .addOnSuccessListener { dataSnapshot ->
                                             if (dataSnapshot.exists()) {
                                                 val role = dataSnapshot.child("role").getValue(Int::class.java)
-                                                Toast.makeText(context, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
-                                                //truyenID(email)
-                                                findNavController().navigate(R.id.homeAdmin)
-
+                                                if (role == 1) {
+                                                    Toast.makeText(context, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
+                                                    truyenID(email)
+                                                    findNavController().navigate(R.id.homeAdmin)
+                                                } else {
+                                                    Toast.makeText(context, "Đây là tài khoản user", Toast.LENGTH_SHORT).show()
+                                                }
                                             } else {
                                                 Toast.makeText(context, "Không tìm thấy dữ liệu người dùng", Toast.LENGTH_SHORT).show()
                                             }
@@ -109,7 +112,7 @@ class loginAdmin : Fragment() {
                                 .addOnFailureListener {
                                     Toast.makeText(context, "Lỗi khi cập nhật dữ liệu người dùng: ${it.message}", Toast.LENGTH_SHORT).show()
                                 }
-                        } else {
+                        }  else {
                             // Email chưa xác minh
                             Toast.makeText(context, "Vui lòng xác minh email trước khi đăng nhập.", Toast.LENGTH_LONG).show()
                             admin.sendEmailVerification()
