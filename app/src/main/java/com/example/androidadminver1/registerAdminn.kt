@@ -71,6 +71,20 @@ class registerAdminn : Fragment() {
                 return
             }
         }
+
+        // Kiểm tra username
+        if (adminName.length > 30) {
+            binding.etNameRegister.error = "Tên admin không được vượt quá 30 ký tự"
+            binding.etNameRegister.requestFocus()
+            return
+        }
+
+        val usernamePattern = "^[a-zA-Z0-9_]+$".toRegex()
+        if (!usernamePattern.matches(adminName)) {
+            binding.etNameRegister.error = "Tên admin không được chứa ký tự đặc biệt"
+            binding.etNameRegister.requestFocus()
+            return
+        }
         // kt cau truc email
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.etRegister.error = "Email không hợp lệ"
