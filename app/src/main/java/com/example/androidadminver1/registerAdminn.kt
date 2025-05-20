@@ -50,7 +50,7 @@ class registerAdminn : Fragment() {
     }
 
     private fun RegisterAdmin() {
-        val userName = binding.etNameRegister.text.toString().trim()
+        val adminName = binding.etNameRegister.text.toString().trim()
         val email = binding.etRegister.text.toString().trim()
         val pass = binding.etConfirmPass.text.toString().trim()
         val rePass = binding.etReEnterPass.text.toString().trim()
@@ -71,14 +71,28 @@ class registerAdminn : Fragment() {
                 return
             }
         }
+
+        // Kiểm tra username
+        if (adminName.length > 30) {
+            binding.etNameRegister.error = "Tên admin không được vượt quá 30 ký tự"
+            binding.etNameRegister.requestFocus()
+            return
+        }
+
+        val usernamePattern = "^[a-zA-Z0-9_]+$".toRegex()
+        if (!usernamePattern.matches(adminName)) {
+            binding.etNameRegister.error = "Tên admin không được chứa ký tự đặc biệt"
+            binding.etNameRegister.requestFocus()
+            return
+        }
         // kt cau truc email
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.etRegister.error = "Email không hợp lệ"
             binding.etRegister.requestFocus()
             return
         }
-        if (pass.length < 6) {
-            binding.etConfirmPass.error = "Mật khẩu phải từ 6 ký tự"
+        if (pass.length < 6|| pass.length > 35) {
+            binding.etConfirmPass.error = "Mật khẩu phải từ 6 kí tự và bé hơn 35 kí tự"
             binding.etConfirmPass.requestFocus()
             return
         }
@@ -97,7 +111,7 @@ class registerAdminn : Fragment() {
                         if (adminId != null) {
                             val adminData = hashMapOf(
                                 "id" to adminId,
-                                "adminname" to userName,
+                                "adminname" to adminName,
                                 "email" to email,
                                 "pass" to pass,
                                 "role" to 1,
