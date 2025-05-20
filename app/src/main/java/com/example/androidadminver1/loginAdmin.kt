@@ -91,7 +91,8 @@ class loginAdmin : Fragment() {
                                             // cap nhat lai vao admin
                                             val updates = mapOf(
                                                 "email" to email,
-                                                "pass" to pass
+                                                "pass" to pass,
+                                                "role" to role
                                             )
                                             firebaseRefAdmin.child(admin.uid).updateChildren(updates)
                                                 .addOnSuccessListener {
