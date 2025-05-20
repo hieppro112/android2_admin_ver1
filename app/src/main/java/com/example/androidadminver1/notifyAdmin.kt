@@ -36,6 +36,7 @@ class notifyAdmin : Fragment() {
 
         firebaseRef=FirebaseDatabase.getInstance().getReference("Notify")
         addNotify()
+        chuyenMH()
     }
 
     private fun addNotify(){
@@ -45,6 +46,9 @@ class notifyAdmin : Fragment() {
                 binding.sendMember.visibility = View.GONE
                 binding.btnAddNotify.setOnClickListener {
                     addNotifyAll()
+                    binding.edtTitleNotify.setText("")
+                    binding.edtContentNotify.setText("")
+                    binding.edtOnlyMember.setText("")
                 }
             }
             R.id.rd_send_only->{
@@ -135,7 +139,7 @@ class notifyAdmin : Fragment() {
         }
 
         val id_noti = firebaseRef.push().key!!
-        chuyenMH()
+
 
         firebaseRef.child(id_noti).setValue(notify(id_noti, title, content))
             .addOnCompleteListener {
@@ -165,5 +169,6 @@ class notifyAdmin : Fragment() {
             findNavController().navigate(R.id.profileAdmin)
         }
     }
+
 
 }

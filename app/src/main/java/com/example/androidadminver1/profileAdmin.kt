@@ -74,11 +74,11 @@ class profileAdmin : Fragment() {
 
     private fun loadAdminInfo() {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
-        val databaseRef = FirebaseDatabase.getInstance().getReference("Users").child(userId)
+        val databaseRef = FirebaseDatabase.getInstance().getReference("Admin").child(userId)
 
         databaseRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val username = snapshot.child("username").getValue(String::class.java)
+                val username = snapshot.child("adminname").getValue(String::class.java)
                 val imgUrl = snapshot.child("url_img").getValue(String::class.java)
 
                 binding.tvUserName.text = username ?: "Không có tên"

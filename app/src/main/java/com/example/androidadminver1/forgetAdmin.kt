@@ -26,31 +26,49 @@ class forgetAdmin : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = ForgetAdminAdminBinding.inflate(inflater, container, false)
-        firebaseRefAdmin = FirebaseDatabase.getInstance().getReference("Users")
+        firebaseRefAdmin = FirebaseDatabase.getInstance().getReference("Admin")
         auth = FirebaseAuth.getInstance()
         binding.btnAcceptAdmin.setOnClickListener {
             val email = binding.etForgotPassAdmin.text.toString().trim()
-            getPasswordByEmail(email)
+
+            checEmail(email)
         }
         return binding.root
     }
-    private fun getPasswordByEmail(email: String) {
+    private fun checEmail(email: String) {
 
-        // kt cau truc email
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() || email.isEmpty()) {
+        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.etForgotPassAdmin.error = "Email không hợp lệ"
-            binding.etForgotPassAdmin.requestFocus()
             return
         }
-        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(context, "Đã gửi email đặt lại mật khẩu", Toast.LENGTH_LONG).show()
-                    findNavController().navigate(R.id.loginAdmin)
-                } else {
-                    val errorMessage = task.exception?.message ?: "Đã xảy ra lỗi"
-                    Toast.makeText(context, "Không gửi được email: $errorMessage", Toast.LENGTH_SHORT).show()
+        firebaseRefAdmin.get().addOnSuccessListener { snapshot ->
+            // Duyet qua ds email trong node admin
+            for (admin in snapshot.children) {
+                val adminEmail = admin.child("email").value.toString()
+
+                // neu email = nhau
+                if (adminEmail.equals(email, ignoreCase = true)) {
+                    val role = admin.child("role").getValue(Int::class.java)
+                    //  admin role = 1
+                    if (role == 1) {
+                        sendResetEmail(email)
+                        return@addOnSuccessListener
+                    }
                 }
+            }
+            Toast.makeText(context, "Email không tồn tại trong hệ thống", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(context, "Lỗi kết nối cơ sở dữ liệu", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private fun sendResetEmail(email: String) {
+        auth.sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Đã gửi email đặt lại mật khẩu", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.loginAdmin)
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "Gửi email thất bại", Toast.LENGTH_SHORT).show()
             }
     }
 }

@@ -81,36 +81,35 @@ class loginAdmin : Fragment() {
                 if (task.isSuccessful) {
                     val admin = auth.currentUser
                     if (admin != null) {
-                        //Kiểm tra xác minh email
                         if (admin.isEmailVerified) {
-                            // Cập nhật email và pass vào Realtime Database khi đăng nhập
-                            val updates = mapOf(
-                                "email" to email,
-                                "pass" to pass
-                            )
-                            firebaseRefAdmin.child(admin.uid).updateChildren(updates)
-                                .addOnSuccessListener {
-                                    firebaseRefAdmin.child(admin.uid).get()
-                                        .addOnSuccessListener { dataSnapshot ->
-                                            if (dataSnapshot.exists()) {
-                                                val role = dataSnapshot.child("role").getValue(Int::class.java)
-                                                Toast.makeText(context, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
-                                                //truyenID(email)
-                                                findNavController().navigate(R.id.homeAdmin)
-
-                                            } else {
-                                                Toast.makeText(context, "Không tìm thấy dữ liệu người dùng", Toast.LENGTH_SHORT).show()
-                                            }
+                            firebaseRefAdmin.child(admin.uid).get()
+                                .addOnSuccessListener { dataSnapshot ->
+                                    if (dataSnapshot.exists()) {
+                                        val role = dataSnapshot.child("role").getValue(Int::class.java)
+                                        if (role == 1) {
+                                            // cap nhat lai vao admin
+                                            val updates = mapOf(
+                                                "email" to email,
+                                                "pass" to pass
+                                            )
+                                            firebaseRefAdmin.child(admin.uid).updateChildren(updates)
+                                                .addOnSuccessListener {
+                                                    Toast.makeText(context, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
+                                                    truyenID(email)
+                                                    findNavController().navigate(R.id.homeAdmin)
+                                                }
+                                                .addOnFailureListener {
+                                                    Toast.makeText(context, "Lỗi khi cập nhật dữ liệu admin: ${it.message}", Toast.LENGTH_SHORT).show()
+                                                }
                                         }
-                                        .addOnFailureListener {
-                                            Toast.makeText(context, "Lỗi khi lấy dữ liệu người dùng: ${it.message}", Toast.LENGTH_SHORT).show()
-                                        }
+                                    } else {
+                                        Toast.makeText(context, "Không tìm thấy dữ liệu", Toast.LENGTH_SHORT).show()
+                                    }
                                 }
                                 .addOnFailureListener {
-                                    Toast.makeText(context, "Lỗi khi cập nhật dữ liệu người dùng: ${it.message}", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Lỗi khi lấy dữ liệu admin: ${it.message}", Toast.LENGTH_SHORT).show()
                                 }
                         } else {
-                            // Email chưa xác minh
                             Toast.makeText(context, "Vui lòng xác minh email trước khi đăng nhập.", Toast.LENGTH_LONG).show()
                             admin.sendEmailVerification()
                                 .addOnCompleteListener { verifyTask ->
