@@ -79,8 +79,8 @@ class registerAdminn : Fragment() {
             return
         }
 
-        val usernamePattern = "^[a-zA-Z0-9_]+$".toRegex()
-        if (!usernamePattern.matches(adminName)) {
+        val adminnamePattern = "^[a-zA-Z0-9_]+$".toRegex()
+        if (!adminnamePattern.matches(adminName)) {
             binding.etNameRegister.error = "Tên admin không được chứa ký tự đặc biệt"
             binding.etNameRegister.requestFocus()
             return
