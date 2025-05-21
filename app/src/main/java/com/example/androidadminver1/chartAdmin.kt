@@ -42,7 +42,27 @@ class chartAdmin : Fragment() {
     }
 
     private fun fetchStatistics() {
-        // Đếm số lượng bài đăng từ Port_khanh dựa trên trường id
+
+//        firebaseRefAdmin.addValueEventListener(object :ValueEventListener{
+//            override fun onDataChange(snap: DataSnapshot) {
+//                var length:Int=0;
+//                if (snap.exists()){
+//                    for (item in snap.children){
+//                        item?.let {
+//                            length++
+//                        }
+//                    }
+//                    binding.tvSLBaiDang.text = length.toString()
+//                }
+//            }
+//
+//            override fun onCancelled(p0: DatabaseError) {
+//                Toast.makeText(context, "Lỗi: ${p0}", Toast.LENGTH_SHORT).show()
+//            }
+//
+//        })
+
+
         firebaseRefAdmin.get().addOnSuccessListener { snapshot ->
             var postCount = 0
             for (postSnapshot in snapshot.children) {

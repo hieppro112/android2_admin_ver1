@@ -105,12 +105,13 @@ class inforMotoAdmin : Fragment() {
         binding.tvTuchoi.setOnClickListener {
             firebaseRef.child(agrs.idPost).child("duyet").setValue(3)
             Toast.makeText(requireContext(), "Da tu choi bai viet", Toast.LENGTH_SHORT).show()
+            findNavController().popBackStack()
 
         }
         binding.tvAccep.setOnClickListener{
             firebaseRef.child(agrs.idPost).child("duyet").setValue(2)
             Toast.makeText(requireContext(), "Da duyet bai", Toast.LENGTH_SHORT).show()
-
+            findNavController().popBackStack()
         }
     }
 

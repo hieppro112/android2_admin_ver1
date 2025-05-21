@@ -81,7 +81,6 @@ class ApprovedPostsAdapter(private val posts: List<post>) : RecyclerView.Adapter
                     items.Url3.toString(),
                 )
                 Navigation.findNavController(holder.itemView).navigate(action)
-
             }
             deleteButton.setOnClickListener {
                 MaterialAlertDialogBuilder(holder.itemView.context)

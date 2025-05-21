@@ -113,7 +113,7 @@ class profileAdmin : Fragment() {
             .addOnSuccessListener {
                 storageRef.downloadUrl.addOnSuccessListener { downloadUrl ->
                     // Cập nhật đường dẫn ảnh vào Realtime Database
-                    FirebaseDatabase.getInstance().getReference("Users")
+                    FirebaseDatabase.getInstance().getReference("Admin")
                         .child(userId)
                         .child("url_img")
                         .setValue(downloadUrl.toString())
